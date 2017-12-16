@@ -1,10 +1,13 @@
-#theImg {
-	background-image: url(https://www.worldatlas.com/webimage/countrys/namerica/usstates/usa48out.gif);
+#theMap {
+	background: url(https://www.worldatlas.com/webimage/countrys/namerica/usstates/usa48out.gif);
 	background-repeat: no-repeat;
-	background-size: cover; 
-	height: 100%;
+	background-size: 200%; 
 }
 
 #searchBar {
 	
+}
+
+/*#theMap {
+	background-size: cover;
 }
