@@ -19,6 +19,7 @@ var map = kartograph.map('#map', 600, 400);
 	x= fc[1]+fc[2]+fc[3]+fc[4]+fc[5];
 	y= fc[7]+fc[8]+fc[9]+fc[10]+fc[11];
 	console.log(' '+ x + ' ' + y + ' ');
+    
 	$("." + id).html('<text x="755" y="510" font-family="Verdana" font-size="15">FL</text>');
 	
 	
@@ -29,6 +30,7 @@ var map = kartograph.map('#map', 600, 400);
      $(this).attr("fill", origCol);
       var id = $(this).attr("");
 	console.log(id);
+    
 	$("." + id).html('');
 
 	});
@@ -37,6 +39,14 @@ var map = kartograph.map('#map', 600, 400);
   	console.log($(this).attr("id"));
 	
 
+	});
+
+});
+
+
+	var text = $("text").val();
+	console.log('txt: ' + text);
+	
 	});
 
 });
