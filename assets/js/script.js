@@ -47,7 +47,7 @@ var map = kartograph.map('#map', 600, 400);
 	var text = $("text").val();
 	console.log('txt: ' + text);
 	
-	});
+	};
 
-});
+};
 
