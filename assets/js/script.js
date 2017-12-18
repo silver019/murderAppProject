@@ -2,8 +2,10 @@
 $( document ).ready(function() {
     console.log( "ready!" );
  
-
-
+//Variables for Site Scraping
+var state = "";
+var stateDescription ="";
+var url_hist;
 //API PARAMETERS
 			//=====================================================
 			var url_owm = "http://api.openweathermap.org/data/2.5/forecast";
@@ -20,8 +22,10 @@ $( document ).ready(function() {
 
 			var url_tzdb = "http://api.timezonedb.com/v2/list-time-zone";
 			url_tzdb += '?';
+			url_tzdb +='&';
+			url_tzdb += 'countryCode=US';
 			url_tzdb += "key=ZHLZ5DVDFQE4&format=json";
-
+						
 			$.ajax({
 						
 			url: url_owm,
@@ -44,6 +48,45 @@ $( document ).ready(function() {
 			}).done(function(response) {
 			console.log(response);
 			});
+			
+			function desc(s){
+		$.ajax({
+			url: s,
+			method: "GET",
+			}).done(function(states) {
+			//console.log(response);
+			stateDescription= $(states).find('p');
+			//console.log(stateDescription);
+			stateDescription = stateDescription[8].innerText;
+			if(stateDescription === "A+E Networks"){
+			stateDescription = '';
+			stateDescription =$(states).find('p');
+			stateDescription = stateDescription[9].innerText;
+			console.log(stateDescription);
+			
+				function mymodal(sd){
+					$('#myModal').on('shown.bs.modal', function() {
+           				 $('#myInput').focus()
+		
+          				  });
+            
+          		 		 
+	 
+	   		 		$("#description").html("<p>" + sd + "</p>");
+          				 console.log(model);
+  		
+					}
+					mymodal(stateDescription);
+					
+			}
+			});
+				
+			}	
+			
+			
+			
+			
+			
 
 					
 //initialize your Kartograph map 
@@ -79,17 +122,18 @@ $( document ).ready(function() {
 
 	$("#MO, #MS, #MT, #NC, #ND, #NE, #NH, #NJ, #NM, #NV, #NY, #OH, #OK, #OR, #PA, #RI, #SC, #SD, #TN, #TX, #UT, #VA, #VT, #WA, #WI, #WV, #WY, #AK, #HI, #AL, #AR, #AZ, #CA, #CO, #CT, #DE, #FL, #GA, #IA, #ID, #IL, #IN, #KS, #KY, #LA, #MA, #MD, #ME, #MI, #MN").click(function() {
   	console.log($(this).attr("id"));
-  	 		$('#myModal').on('shown.bs.modal', function() {
-            $('#myInput').focus()
-            });
-            
-            var model = $("#myModal").find('#exampleModalLabel').html($(this).attr("data-info"));
-
-            console.log(model);
-  	 console.log($(this).attr("data-info"));
-
+	console.log($(this).attr("data-info"));
+		state =$(this).attr("data-info");
+		url_hist = "http://www.history.com/topics/us-states/";
+		url_hist += state;
+		console.log(url_hist);
+		var model = $("#myModal").find('#exampleModalLabel').html($(this).attr("data-info").toUpperCase());
+		desc(url_hist); 
+		
+		console.log(stateDescription);
+  	 		
+			
   	 });
-
-
+					
 });
 
