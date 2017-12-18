@@ -56,14 +56,14 @@ var url_hist;
 			}).done(function(states) {
 			//console.log(response);
 			stateDescription= $(states).find('p');
-			//console.log(stateDescription);
-			stateDescription = stateDescription[8].innerText;
-			if(stateDescription === "A+E Networks"){
-			stateDescription = '';
-			stateDescription =$(states).find('p');
-			stateDescription = stateDescription[9].innerText;
 			console.log(stateDescription);
-			
+			stateDescription = stateDescription[8].innerText;
+				if(stateDescription === "A+E Networks"){
+				stateDescription = '';
+				stateDescription =$(states).find('p');
+				stateDescription = stateDescription[9].innerText;
+				console.log(stateDescription);
+			}
 				function mymodal(sd){
 					$('#myModal').on('shown.bs.modal', function() {
            				 $('#myInput').focus()
@@ -78,7 +78,7 @@ var url_hist;
 					}
 					mymodal(stateDescription);
 					
-			}
+			
 			});
 				
 			}	
