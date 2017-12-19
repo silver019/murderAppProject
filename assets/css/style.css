@@ -32,3 +32,18 @@ li a {
 li a:hover {
     background-color: #D3D3D3;
 }
+
+#image img {
+
+display: block;
+width:720px;
+height:380px;
+margin: 15px auto;
+
+box-shadow: 10px 10px 5px grey;
+
+}
+
+.blockquote{
+margin:12px;
+}

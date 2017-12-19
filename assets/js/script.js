@@ -20,7 +20,7 @@ var nickname;
 var motto;
 var start;
 var capstart;
-
+var images;
 
 //API PARAMETERS
 			//=====================================================
@@ -71,6 +71,11 @@ var capstart;
 			method: "GET",
 			}).done(function(states) {
 			//console.log(response);
+			images = $(states).find('img')
+			images = images[1];
+			$("#image").html(images);
+			
+			console.log(images);
 			stateDescription= $(states).find('p');
 				statehood = $(states).find('p');
 							
@@ -89,6 +94,9 @@ var capstart;
 				statehood = statehood.split(":");
 				statehood = statehood[1];
 				console.log(statehood);
+				}
+				else if (statehood[9].innerText.split(":")[0] === "" || statehood[10].innerText.split(":")[0] === ""){
+				statehood = "n/a";
 				}
 				
 				capital= $(states).find('p');
@@ -117,6 +125,9 @@ var capstart;
 				capital = capital.split(":");
 				capital = capital[1];
 				console.log(capital);
+				}
+				else if(capital[12].innerText.split(":")[0] === "" || capital[11].innerText.split(":")[0] === "" || capital[10].innerText.split(":")[0] === ""){
+				capital= "n/a"
 				}					
 			
 				population = $(states).find('p');
@@ -145,7 +156,9 @@ var capstart;
 				population = population[1];
 				console.log(population);
 				}
-			
+				else if(population[13].innerText.split(":")[0] === "" || population[12].innerText.split(":")[0] === "" || population[11].innerText.split(":")[0] === ""){
+				population= "n/a";
+				}
 				size = $(states).find('p');
 				
 				if(size[14].innerText.split(":")[0] === "Size"){
@@ -277,7 +290,7 @@ var capstart;
 
 //var map = kartograph.map('#map', 600, 400);
 
-	$("#MO, #MS, #MT, #NC, #ND, #NE, #NH, #NJ, #NM, #NV, #NY, #OH, #OK, #OR, #PA, #RI, #SC, #SD, #TN, #TX, #UT, #VA, #VT, #WA, #WI, #WV, #WY, #AK, #HI, #AL, #AR, #AZ, #CA, #CO, #CT, #DE, #FL, #GA, #IA, #ID, #IL, #IN, #KS, #KY, #LA, #MA, #MD, #ME, #MI, #MN").hover(function () {
+	$("#MO, #MS, #MT, #NC, #ND, #NE, #NH, #NJ, #NM, #NV, #NY, #OH, #OK, #OR, #PA, #RI, #SC, #SD, #TN, #TX, #UT, #VA, #VT, #WA, #WI, #WV, #WY, #AK, #HI, #AL, #AR, #AZ, #CA, #CO, #CT, #DE, #FL, #GA, #IA, #ID, #IL, #IN, #KS, #KY, #LA, #MA, #MD, #ME, #MI, #MN, #DC2").hover(function () {
    	 //stuff to do on mouse enter
 	var col = "#FF69B4";
   	  $(this).attr("fill", col );
@@ -298,12 +311,12 @@ var capstart;
     var origCol ="#D3D3D3";
      $(this).attr("fill", origCol);
       var id = $(this).attr("");
-	console.log(id);
+	
 	$("." + $(this).attr("id")).html("");
 
 	});
 
-	$("#MO, #MS, #MT, #NC, #ND, #NE, #NH, #NJ, #NM, #NV, #NY, #OH, #OK, #OR, #PA, #RI, #SC, #SD, #TN, #TX, #UT, #VA, #VT, #WA, #WI, #WV, #WY, #AK, #HI, #AL, #AR, #AZ, #CA, #CO, #CT, #DE, #FL, #GA, #IA, #ID, #IL, #IN, #KS, #KY, #LA, #MA, #MD, #ME, #MI, #MN").click(function() {
+	$("#MO, #MS, #MT, #NC, #ND, #NE, #NH, #NJ, #NM, #NV, #NY, #OH, #OK, #OR, #PA, #RI, #SC, #SD, #TN, #TX, #UT, #VA, #VT, #WA, #WI, #WV, #WY, #AK, #HI, #AL, #AR, #AZ, #CA, #CO, #CT, #DE, #FL, #GA, #IA, #ID, #IL, #IN, #KS, #KY, #LA, #MA, #MD, #ME, #MI, #MN, #DC2").click(function() {
   	console.log($(this).attr("id"));
 	console.log($(this).attr("data-info"));
 		state =$(this).attr("data-info");
@@ -313,7 +326,7 @@ var capstart;
 		var model = $("#myModal").find('#exampleModalLabel').html($(this).attr("data-info").toUpperCase());
 		desc(url_hist); 
 		
-		console.log(stateDescription);
+		
   	 		
 			
   	 });
