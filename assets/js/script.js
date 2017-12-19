@@ -51,3 +51,8 @@ var map = kartograph.map('#map', 600, 400);
 
 };
 
+// Testing AOS.js
+
+AOS.init({
+  duration: 1200,
+});
