@@ -20,6 +20,8 @@ var nickname;
 var motto;
 var start;
 var capstart;
+
+
 //API PARAMETERS
 			//=====================================================
 			var url_owm = "http://api.openweathermap.org/data/2.5/forecast";
@@ -70,144 +72,164 @@ var capstart;
 			}).done(function(states) {
 			//console.log(response);
 			stateDescription= $(states).find('p');
-			start = $(states).find('p');
-			start = start[10].innerText;
-			start = start.split(":");
-			if(start[0] === "Date of Statehood"){
-			statehood = start[1];
-			console.log(statehood);
-			
-			capstart= $(states).find('p');
-			capstart = capstart[12].innerText;
-			capstart = capstart.split(":");
-			console.log(capstart);
-				if (capstart[0] === "Population") {
-				capital ="";
+				statehood = $(states).find('p');
+							
+				if(statehood[10].innerText.split(":")[0] === "Date of Statehood"){
+				statehood = $(states).find('p');
+				statehood = statehood[10].innerText;
+				statehood = statehood.split(":");
+				statehood = statehood[1];
+				console.log(statehood);
+				
+				}
+				else if(statehood[9].innerText.split(":")[0] === "Date of Statehood"){
+				statehood = "";
+				statehood = $(states).find('p');
+				statehood = statehood[09].innerText;
+				statehood = statehood.split(":");
+				statehood = statehood[1];
+				console.log(statehood);
+				}
+				
+				capital= $(states).find('p');
+								
+					
+				if(capital[12].innerText.split(":")[0] === "Capital"){
+				capital= "";
+				capital= $(states).find('p');
+				capital = capital[12].innerText;
+				capital = capital.split(":");
+				capital = capital[1];
+				console.log(capital);
+				}
+				else if(capital[11].innerText.split(":")[0] === "Capital"){
+				capital= "";
 				capital= $(states).find('p');
 				capital = capital[11].innerText;
 				capital = capital.split(":");
 				capital = capital[1];
 				console.log(capital);
-				population = $(states).find('p');
-				population = population[12].innerText;
-				population = population.split(":");
-				population = population[1];
-				console.log(population);
-				size = $(states).find('p');
-				size = size[13].innerText;
-				size = size.split(":");
-				size = size[1];
-				console.log(size);
-		
-		nickname = $(states).find('p');
-				nickname = nickname[14].innerText;
-				nickname = nickname.split(":");
-				nickname = nickname[1];
-				console.log(nickname);
-				motto = $(states).find('p');
-				motto = motto[15].innerText;
-				motto = motto.split(":");
-				motto = motto[1];
-				console.log(motto);
 				}
-				
-				
-			}
-			if(start[0] !== "Date of Statehood"){
-			statehood = "";
-			statehood = $(states).find('p');
-			statehood = statehood[9].innerText;
-			statehood = statehood.split(":");
-			statehood = statehood[1];
-			console.log(statehood);
-			capital = $(states).find('p');
-			capital = capital[11].innerText;
-			capital = capital.split(":");
-			//capital = capital[1];
-			if (capital[0] === "Population") {
-				capital ="";
+				else if(capital[10].innerText.split(":")[0] === "Capital"){
+				capital= "";
 				capital= $(states).find('p');
 				capital = capital[10].innerText;
 				capital = capital.split(":");
 				capital = capital[1];
 				console.log(capital);
+				}					
+			
 				population = $(states).find('p');
+				
+				if(population[13].innerText.split(":")[0] === "Population"){
+				population= "";
+				population= $(states).find('p');
+				population = population[13].innerText;
+				population = population.split(":");
+				population = population[1];
+				console.log(population);
+				}
+				else if(population[12].innerText.split(":")[0] === "Population"){
+				population= "";
+				population= $(states).find('p');
+				population = population[12].innerText;
+				population = population.split(":");
+				population = population[1];
+				console.log(population);
+				}
+				else if(population[11].innerText.split(":")[0] === "Population"){
+				population= "";
+				population= $(states).find('p');
 				population = population[11].innerText;
 				population = population.split(":");
 				population = population[1];
 				console.log(population);
+				}
+			
 				size = $(states).find('p');
+				
+				if(size[14].innerText.split(":")[0] === "Size"){
+				size= "";
+				size= $(states).find('p');
+				size = size[14].innerText;
+				size = size.split(":");
+				size = size[1];
+				console.log(size);
+				}
+				else if(size[13].innerText.split(":")[0] === "Size"){
+				size= "";
+				size= $(states).find('p');
+				size = size[13].innerText;
+				size = size.split(":");
+				size = size[1];
+				console.log(size);
+				}
+				else if(size[12].innerText.split(":")[0] === "Size"){
+				size= "";
+				size= $(states).find('p');
 				size = size[12].innerText;
 				size = size.split(":");
 				size = size[1];
 				console.log(size);
-		
-		nickname = $(states).find('p');
+				}
+				
+				nickname = $(states).find('p');
+
+				if(nickname[15].innerText.split(":")[0] === "Nickname(s)"){
+				nickname= "";
+				nickname= $(states).find('p');
+				nickname = nickname[15].innerText;
+				nickname = nickname.split(":");
+				nickname = nickname[1];
+				console.log(nickname);
+				}
+				else if(nickname[14].innerText.split(":")[0] === "Nickname(s)"){
+				nickname= "";
+				nickname= $(states).find('p');
+				nickname = nickname[14].innerText;
+				nickname = nickname.split(":");
+				nickname = nickname[1];
+				console.log(nickname);
+				}
+				else if(nickname[13].innerText.split(":")[0] === "Nickname(s)"){
+				nickname= "";
+				nickname= $(states).find('p');
 				nickname = nickname[13].innerText;
 				nickname = nickname.split(":");
 				nickname = nickname[1];
 				console.log(nickname);
+				}
+		
+	
 				motto = $(states).find('p');
+		
+				if(motto[16].innerText.split(":")[0] === "Motto"){
+				motto= "";
+				motto= $(states).find('p');
+				motto = motto[16].innerText;
+				motto = motto.split(":");
+				motto = motto[1];
+				console.log(motto);
+				}
+				else if(motto[15].innerText.split(":")[0] === "Motto"){
+				motto= "";
+				motto= $(states).find('p');
+				motto = motto[15].innerText;
+				motto = motto.split(":");
+				motto = motto[1];
+				console.log(motto);
+				}
+				else if(motto[14].innerText.split(":")[0] === "Motto"){
+				motto= "";
+				motto= $(states).find('p');
 				motto = motto[14].innerText;
 				motto = motto.split(":");
 				motto = motto[1];
 				console.log(motto);
 				}
 			
-			population = $(states).find('p');
-			population = population[12].innerText;
-			population = population.split(":");
-			population = population[1];
-			console.log(population);
-			size = $(states).find('p');
-			size = size[13].innerText;
-			size = size.split(":");
-			size = size[1];
-			console.log(size);
-			
-		
-	nickname = $(states).find('p');
-			nickname = nickname[14].innerText;
-			nickname = nickname.split(":");
-			nickname = nickname[1];
-			console.log(nickname);
-			motto = $(states).find('p');
-			motto = motto[15].innerText;
-			motto = motto.split(":");
-			motto = motto[1];
-			console.log(motto);
-			}
 
-			if(start[0] === "Date of Statehood" && capstart[0] === "Capital"){
-			statehood = start[1];
-			console.log(statehood);
-			capital= $(states).find('p');
-			capital = capital[12].innerText;
-			capital = capital.split(":");
-			capital = capital[1];
-			console.log(capital);
-			population = $(states).find('p');
-			population = population[13].innerText;
-			population = population.split(":");
-			population = population[1];
-			console.log(population);
-			size = $(states).find('p');
-			size = size[14].innerText;
-			size = size.split(":");
-			size = size[1];
-			console.log(size);
-		
-	nickname = $(states).find('p');
-			nickname = nickname[15].innerText;
-			nickname = nickname.split(":");
-			nickname = nickname[1];
-			console.log(nickname);
-			motto = $(states).find('p');
-			motto = motto[16].innerText;
-			motto = motto.split(":");
-			motto = motto[1];
-			console.log(motto);
-			}
+			
 					var tbl ="<tr><td>Date of Statehood:</td><td>" + statehood + "</td></tr>";
 					tbl += "<tr><td>Capital:</td><td>" + capital + "</td></tr>";
 					tbl += "<tr><td>Population:</td><td>" + population + "</td></tr>";
