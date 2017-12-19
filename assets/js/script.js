@@ -25,7 +25,7 @@ var weather;
 
 
 //API PARAMETERS
-			//=====================================================
+//=====================================================
 			
 			
 			var url_ss = "https://api.sunrise-sunset.org/json";
@@ -42,7 +42,8 @@ var weather;
 			url_tzdb += 'countryCode=US';
 			url_tzdb += "key=ZHLZ5DVDFQE4&format=json";
 						
-						
+//function to retrieve site information from history.com
+//=====================================================						
 			function desc(s){
 		$.ajax({
 			url: s,
@@ -54,9 +55,9 @@ var weather;
 			$("#image").html(images);
 			
 			console.log(images);
-			stateDescription= $(states).find('p');
+			stateDescription= $(states).find('p');   // variable to get state description
 				statehood = $(states).find('p');
-							
+				// if statements to get find Date of Statehood			
 				if(statehood[10].innerText.split(":")[0] === "Date of Statehood"){
 				statehood = $(states).find('p');
 				statehood = statehood[10].innerText;
@@ -65,6 +66,7 @@ var weather;
 				console.log(statehood);
 				
 				}
+				// if statements to get find Date of Statehood
 				else if(statehood[9].innerText.split(":")[0] === "Date of Statehood"){
 				statehood = "";
 				statehood = $(states).find('p');
@@ -73,13 +75,13 @@ var weather;
 				statehood = statehood[1];
 				console.log(statehood);
 				}
+				// if statements to get find Date of Statehood
 				else if (statehood[9].innerText.split(":")[0] === "" || statehood[10].innerText.split(":")[0] === ""){
 				statehood = "n/a";
 				}
-				
+				// if statements to get find state capitals
 				capital= $(states).find('p');
-								
-					
+				
 				if(capital[12].innerText.split(":")[0] === "Capital"){
 				capital= "";
 				capital= $(states).find('p');
@@ -108,7 +110,7 @@ var weather;
 				else if(capital[12].innerText.split(":")[0] === "" || capital[11].innerText.split(":")[0] === "" || capital[10].innerText.split(":")[0] === ""){
 				capital= "n/a"
 				}					
-			
+				// if statements to get find population
 				population = $(states).find('p');
 				
 				if(population[13].innerText.split(":")[0] === "Population"){
@@ -138,6 +140,7 @@ var weather;
 				else if(population[13].innerText.split(":")[0] === "" || population[12].innerText.split(":")[0] === "" || population[11].innerText.split(":")[0] === ""){
 				population= "n/a";
 				}
+				// if statements to get find state size
 				size = $(states).find('p');
 				
 				if(size[14].innerText.split(":")[0] === "Size"){
@@ -164,7 +167,7 @@ var weather;
 				size = size[1];
 				console.log(size);
 				}
-				
+				// if statements to get find state nick name
 				nickname = $(states).find('p');
 
 				if(nickname[15].innerText.split(":")[0] === "Nickname(s)"){
@@ -192,7 +195,7 @@ var weather;
 				console.log(nickname);
 				}
 		
-	
+		// if statements to get find state motto
 				motto = $(states).find('p');
 		
 				if(motto[16].innerText.split(":")[0] === "Motto"){
@@ -219,15 +222,16 @@ var weather;
 				motto = motto[1];
 				console.log(motto);
 				}
+				// variables to weather api
 				var url_owm = "";
 				url_owm = "http://api.openweathermap.org/data/2.5/weather?";
 				url_owm += "&apikey=9ca40e75e9f5ec1197766bf87c668827";
 				url_owm += '&q=';
 				url_owm += capital;
-				
+				//weather function call
 				Weather(url_owm);
 				
-				
+				//table for state information 
 					var tbl ="<tr><td>Date of Statehood:</td><td>" + statehood + "</td></tr>";
 					tbl += "<tr><td>Capital:</td><td>" + capital + "</td></tr>";
 					tbl += "<tr><td>Population:</td><td>" + population + "</td></tr>";
@@ -237,7 +241,7 @@ var weather;
 					$("tbody").html(tbl);          			
 			
 					
-			
+			//state description variables and if statement 
 			console.log(stateDescription);
 			stateDescription = stateDescription[8].innerText;
 				if(stateDescription === "A+E Networks"){
@@ -246,7 +250,8 @@ var weather;
 				stateDescription = stateDescription[9].innerText;
 				console.log(stateDescription);
 			}
-				function mymodal(sd){
+				// modal function with state description
+					function mymodal(sd){
 					$('#myModal').on('shown.bs.modal', function() {
            				 $('#myInput').focus()
 		
@@ -259,13 +264,11 @@ var weather;
   		
 					}
 					mymodal(stateDescription);
-					
-			
 			});
 				
 			}	
 			
-
+			//unused API's
 			$.ajax({
 			url: url_ss,
 			method: "GET"
@@ -281,14 +284,14 @@ var weather;
 			}).done(function(response) {
 			console.log(response);
 			});
-
+			//Weather API function
 			function Weather(u){
 				$.ajax({
 				url: u,
 				method: "GET"
 				}).done(function(response) {
 				console.log(response.main);
-				
+					//list for weather information on modal
 					var list = '<ul class="list-group">';
  					list += '<li class="list-group-item active">Today\'s weather</li>';
  					list += '<li class="list-group-item">humidity: '+ response.main.humidity  +'</li>';
@@ -310,20 +313,20 @@ var weather;
 //var map = kartograph.map('#map')
 
 //var map = kartograph.map('#map', 600, 400);
-
+	// hover effects on map
 	$("#MO, #MS, #MT, #NC, #ND, #NE, #NH, #NJ, #NM, #NV, #NY, #OH, #OK, #OR, #PA, #RI, #SC, #SD, #TN, #TX, #UT, #VA, #VT, #WA, #WI, #WV, #WY, #AK, #HI, #AL, #AR, #AZ, #CA, #CO, #CT, #DE, #FL, #GA, #IA, #ID, #IL, #IN, #KS, #KY, #LA, #MA, #MD, #ME, #MI, #MN, #DC2").hover(function () {
    	 //stuff to do on mouse enter
 	var col = "#FF69B4";
   	  $(this).attr("fill", col );
 	var id = $(this).attr("id");
 
-	// to get X & Y location on map
+	// to get X & Y for each state location on map (not used)
 	var fc = $(this).attr("d");
 	x= fc[1]+fc[2]+fc[3]+fc[4]+fc[5];
 	y= fc[7]+fc[8]+fc[9]+fc[10]+fc[11];
 	
 	//console.log(' '+ x + ' ' + y + ' ');
-	$("." + id).html('<text x='+ x +' y=' + y + ' font-family="Verdana" font-size="15">FL</text>');
+	//$("." + id).html('<text x='+ x +' y=' + y + ' font-family="Verdana" font-size="15">FL</text>');
 
 	
 	}, 
@@ -336,21 +339,25 @@ var weather;
 	$("." + $(this).attr("id")).html("");
 
 	});
-
+	// on click for each state on map
 	$("#MO, #MS, #MT, #NC, #ND, #NE, #NH, #NJ, #NM, #NV, #NY, #OH, #OK, #OR, #PA, #RI, #SC, #SD, #TN, #TX, #UT, #VA, #VT, #WA, #WI, #WV, #WY, #AK, #HI, #AL, #AR, #AZ, #CA, #CO, #CT, #DE, #FL, #GA, #IA, #ID, #IL, #IN, #KS, #KY, #LA, #MA, #MD, #ME, #MI, #MN, #DC2").click(function() {
   	console.log($(this).attr("id"));
 	console.log($(this).attr("data-info"));
+		// to generate state name on modal header
 		state =$(this).attr("data-info");
+		// variables to pull data from history.com
 		url_hist = "http://www.history.com/topics/us-states/";
+		// append to var state to add search parameter
 		url_hist += state;
 		console.log(url_hist);
+		//adding state to header
 		var model = $("#myModal").find('#exampleModalLabel').html($(this).attr("data-info").toUpperCase());
 		desc(url_hist); 
 		
 		
   	 		
 			
-  	 });
+  	 });  //close click function
 					
-});
+}); // close
 
