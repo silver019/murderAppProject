@@ -1,16 +1,16 @@
-#theImg {
-  background-image: url(https://www.worldatlas.com/webimage/countrys/namerica/usstates/usa48out.gif);
-  background-repeat: no-repeat;
-  background-size: cover; 
-  height: 100%;
+.navbar-nav {
+  flex-direction:;
+  display: inline;
 }
 
 #searchBar {
-  
+  padding: 10px;
+  float: right;
 }
 
 ul {
     list-style-type: none;
+    display: inline-flex;
     margin: 0;
     padding: 0;
     overflow: hidden;

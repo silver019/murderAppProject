@@ -339,6 +339,7 @@ var weather;
 	$("." + $(this).attr("id")).html("");
 
 	});
+
 	// on click for each state on map
 	$("#MO, #MS, #MT, #NC, #ND, #NE, #NH, #NJ, #NM, #NV, #NY, #OH, #OK, #OR, #PA, #RI, #SC, #SD, #TN, #TX, #UT, #VA, #VT, #WA, #WI, #WV, #WY, #AK, #HI, #AL, #AR, #AZ, #CA, #CO, #CT, #DE, #FL, #GA, #IA, #ID, #IL, #IN, #KS, #KY, #LA, #MA, #MD, #ME, #MI, #MN, #DC2").click(function() {
   	console.log($(this).attr("id"));
@@ -360,4 +361,5 @@ var weather;
   	 });  //close click function
 					
 }); // close
+
 
