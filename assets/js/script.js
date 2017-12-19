@@ -4,8 +4,22 @@ $( document ).ready(function() {
  
 //Variables for Site Scraping
 var state = "";
-var stateDescription ="";
+var stateDescription;
 var url_hist;
+var statehood;
+var capital;
+
+var population; 
+
+
+var size;
+
+var nickname;
+
+
+var motto;
+var start;
+var capstart;
 //API PARAMETERS
 			//=====================================================
 			var url_owm = "http://api.openweathermap.org/data/2.5/forecast";
@@ -56,6 +70,153 @@ var url_hist;
 			}).done(function(states) {
 			//console.log(response);
 			stateDescription= $(states).find('p');
+			start = $(states).find('p');
+			start = start[10].innerText;
+			start = start.split(":");
+			if(start[0] === "Date of Statehood"){
+			statehood = start[1];
+			console.log(statehood);
+			
+			capstart= $(states).find('p');
+			capstart = capstart[12].innerText;
+			capstart = capstart.split(":");
+			console.log(capstart);
+				if (capstart[0] === "Population") {
+				capital ="";
+				capital= $(states).find('p');
+				capital = capital[11].innerText;
+				capital = capital.split(":");
+				capital = capital[1];
+				console.log(capital);
+				population = $(states).find('p');
+				population = population[12].innerText;
+				population = population.split(":");
+				population = population[1];
+				console.log(population);
+				size = $(states).find('p');
+				size = size[13].innerText;
+				size = size.split(":");
+				size = size[1];
+				console.log(size);
+		
+		nickname = $(states).find('p');
+				nickname = nickname[14].innerText;
+				nickname = nickname.split(":");
+				nickname = nickname[1];
+				console.log(nickname);
+				motto = $(states).find('p');
+				motto = motto[15].innerText;
+				motto = motto.split(":");
+				motto = motto[1];
+				console.log(motto);
+				}
+				
+				
+			}
+			if(start[0] !== "Date of Statehood"){
+			statehood = "";
+			statehood = $(states).find('p');
+			statehood = statehood[9].innerText;
+			statehood = statehood.split(":");
+			statehood = statehood[1];
+			console.log(statehood);
+			capital = $(states).find('p');
+			capital = capital[11].innerText;
+			capital = capital.split(":");
+			//capital = capital[1];
+			if (capital[0] === "Population") {
+				capital ="";
+				capital= $(states).find('p');
+				capital = capital[10].innerText;
+				capital = capital.split(":");
+				capital = capital[1];
+				console.log(capital);
+				population = $(states).find('p');
+				population = population[11].innerText;
+				population = population.split(":");
+				population = population[1];
+				console.log(population);
+				size = $(states).find('p');
+				size = size[12].innerText;
+				size = size.split(":");
+				size = size[1];
+				console.log(size);
+		
+		nickname = $(states).find('p');
+				nickname = nickname[13].innerText;
+				nickname = nickname.split(":");
+				nickname = nickname[1];
+				console.log(nickname);
+				motto = $(states).find('p');
+				motto = motto[14].innerText;
+				motto = motto.split(":");
+				motto = motto[1];
+				console.log(motto);
+				}
+			
+			population = $(states).find('p');
+			population = population[12].innerText;
+			population = population.split(":");
+			population = population[1];
+			console.log(population);
+			size = $(states).find('p');
+			size = size[13].innerText;
+			size = size.split(":");
+			size = size[1];
+			console.log(size);
+			
+		
+	nickname = $(states).find('p');
+			nickname = nickname[14].innerText;
+			nickname = nickname.split(":");
+			nickname = nickname[1];
+			console.log(nickname);
+			motto = $(states).find('p');
+			motto = motto[15].innerText;
+			motto = motto.split(":");
+			motto = motto[1];
+			console.log(motto);
+			}
+
+			if(start[0] === "Date of Statehood" && capstart[0] === "Capital"){
+			statehood = start[1];
+			console.log(statehood);
+			capital= $(states).find('p');
+			capital = capital[12].innerText;
+			capital = capital.split(":");
+			capital = capital[1];
+			console.log(capital);
+			population = $(states).find('p');
+			population = population[13].innerText;
+			population = population.split(":");
+			population = population[1];
+			console.log(population);
+			size = $(states).find('p');
+			size = size[14].innerText;
+			size = size.split(":");
+			size = size[1];
+			console.log(size);
+		
+	nickname = $(states).find('p');
+			nickname = nickname[15].innerText;
+			nickname = nickname.split(":");
+			nickname = nickname[1];
+			console.log(nickname);
+			motto = $(states).find('p');
+			motto = motto[16].innerText;
+			motto = motto.split(":");
+			motto = motto[1];
+			console.log(motto);
+			}
+					var tbl ="<tr><td>Date of Statehood:</td><td>" + statehood + "</td></tr>";
+					tbl += "<tr><td>Capital:</td><td>" + capital + "</td></tr>";
+					tbl += "<tr><td>Population:</td><td>" + population + "</td></tr>";
+					tbl += "<tr><td>Size:</td><td>" + size + "</td></tr>";
+					tbl += "<tr><td>Nick Name</td><td>" + nickname + "</td></tr>";
+					tbl += "<tr><td>Motto:</td><td>" + motto + "</td></tr>";
+					$("tbody").html(tbl);          			
+			
+			
 			console.log(stateDescription);
 			stateDescription = stateDescription[8].innerText;
 				if(stateDescription === "A+E Networks"){
@@ -72,8 +233,8 @@ var url_hist;
             
           		 		 
 	 
-	   		 		$("#description").html("<p>" + sd + "</p>");
-          				 console.log(model);
+	   		 		$("#description").html("<p class='blockquote' >" + sd + "</p>");
+					 
   		
 					}
 					mymodal(stateDescription);
