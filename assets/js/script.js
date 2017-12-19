@@ -21,12 +21,12 @@ var motto;
 var start;
 var capstart;
 var images;
+var weather;
+
 
 //API PARAMETERS
 			//=====================================================
-			var url_owm = "http://api.openweathermap.org/data/2.5/forecast";
-			url_owm += '?';
-			url_owm += "id=524901&APPID=9ca40e75e9f5ec1197766bf87c668827";
+			
 			
 			var url_ss = "https://api.sunrise-sunset.org/json";
 			url_ss += '?';
@@ -42,29 +42,7 @@ var images;
 			url_tzdb += 'countryCode=US';
 			url_tzdb += "key=ZHLZ5DVDFQE4&format=json";
 						
-			$.ajax({
 						
-			url: url_owm,
-			method: "GET"
-			}).done(function(response) {
-			console.log(response);
-			});
-
-			$.ajax({
-			url: url_ss,
-			method: "GET"
-			}).done(function(response) {
-			console.log(response);
-			});
-
-
-			$.ajax({
-			url: url_tzdb,
-			method: "GET",
-			}).done(function(response) {
-			console.log(response);
-			});
-			
 			function desc(s){
 		$.ajax({
 			url: s,
@@ -116,6 +94,7 @@ var images;
 				capital = capital[11].innerText;
 				capital = capital.split(":");
 				capital = capital[1];
+				
 				console.log(capital);
 				}
 				else if(capital[10].innerText.split(":")[0] === "Capital"){
@@ -240,9 +219,15 @@ var images;
 				motto = motto[1];
 				console.log(motto);
 				}
-			
-
-			
+				var url_owm = "";
+				url_owm = "http://api.openweathermap.org/data/2.5/weather?";
+				url_owm += "&apikey=9ca40e75e9f5ec1197766bf87c668827";
+				url_owm += '&q=';
+				url_owm += capital;
+				
+				Weather(url_owm);
+				
+				
 					var tbl ="<tr><td>Date of Statehood:</td><td>" + statehood + "</td></tr>";
 					tbl += "<tr><td>Capital:</td><td>" + capital + "</td></tr>";
 					tbl += "<tr><td>Population:</td><td>" + population + "</td></tr>";
@@ -251,6 +236,7 @@ var images;
 					tbl += "<tr><td>Motto:</td><td>" + motto + "</td></tr>";
 					$("tbody").html(tbl);          			
 			
+					
 			
 			console.log(stateDescription);
 			stateDescription = stateDescription[8].innerText;
@@ -279,6 +265,41 @@ var images;
 				
 			}	
 			
+
+			$.ajax({
+			url: url_ss,
+			method: "GET"
+			}).done(function(response) {
+			console.log(response);
+						
+			});
+
+
+			$.ajax({
+			url: url_tzdb,
+			method: "GET",
+			}).done(function(response) {
+			console.log(response);
+			});
+
+			function Weather(u){
+				$.ajax({
+				url: u,
+				method: "GET"
+				}).done(function(response) {
+				console.log(response.main);
+				
+					var list = '<ul class="list-group">';
+ 					list += '<li class="list-group-item active">Today\'s weather</li>';
+ 					list += '<li class="list-group-item">humidity: '+ response.main.humidity  +'</li>';
+ 					list += '<li class="list-group-item">Temperature(F): '+ parseInt((9/5 * (response.main.temp  - 273) + 32))  +'</li>';
+  					list += '<li class="list-group-item">Pressure: '+ response.main.pressure  +'</li>';
+ 					list += '</ul>';
+					$("#temp").html(list);
+				
+
+				});
+				}
 			
 			
 			
