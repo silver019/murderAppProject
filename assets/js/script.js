@@ -420,4 +420,12 @@ $(document).mousemove(function(e) {
 }).mouseover();
 
 
+<<<<<<< HEAD
+// Testing AOS.js
+
+AOS.init({
+  duration: 1200,
+});
+=======
 //animate on scroll begins here
+>>>>>>> c1a6d074abd57979dcc6a1330026b5e41ab26238

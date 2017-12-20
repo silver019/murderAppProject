@@ -102,6 +102,19 @@ li a:hover {
     background-color: #D3D3D3;
 }
 
+<<<<<<< HEAD
+/*AOS TEST*/
+
+.some-item {
+  width: 200px;
+  height: 200px;
+  margin: 50px auto;
+  padding-top: 75px;
+  background: #ccc;
+  text-align: center;
+  color: #FFF;
+  font-size: 3em;
+=======
 #image img {
 
 display: block;
@@ -115,4 +128,5 @@ box-shadow: 10px 10px 5px grey;
 
 .blockquote{
 margin:12px;
+>>>>>>> c1a6d074abd57979dcc6a1330026b5e41ab26238
 }

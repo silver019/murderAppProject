@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>About</title>
+    <!-- AOS Stylesheet -->
+    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">  
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <!-- Normalize -->
@@ -21,24 +23,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/kartograph-js/0.8.7/kartograph.min.js"></script>
     <!-- Javascript -->
     <script src="assets/js/script.js" type="text/javascript"></script>
-</head>
-<body>
+
+  </head>
+  <body>
+<!-- Nav Bar -->
         <nav id="myNav" class="nav navbar-nav">
-          <div class="container-fluid">
+          <div class="container-fluid flex-row-reverse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.html">Home</a></li>
               <li><a class="nav-item" href="flights.html">Flights</a></li>
               <li><a class="nav-item" href="about.html">About</a></li>
               <li><a class="nav-item" href="contact.html">Contact Us</a></li>
                 <!-- Search Bar - need to make search bar functional or we need to remove it later-->
-                <form class="form-inline" id="searchBar">
-                	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    					     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  				      </form>
+                <form class="form-inline flex-last" id="searchBar">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
               <h1 id="myHeader">US Travel Map</h1>
             </ul>
           </div>
         </nav>	
+<!-- Testing AOS -->
+        <div class="some-item" data-aos="fade-up">Mario</div>
+        <div class="some-item" data-aos="fade-down">Michael</div>
+        <div class="some-item" data-aos="fade-right">Armand</div>
+        <div class="some-item" data-aos="fade-left">Yesenia</div>
 
 </body>
 </html>
