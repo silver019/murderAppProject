@@ -1,0 +1,10 @@
+Google Custom Search API
+YOUR API KEY
+AIzaSyCloTFrVWzC6qhURnmTFhO8mDVDm0P_UYA
+
+Google Maps JavaScript API
+YOUR API KEY
+AIzaSyAyqn2ly2XWM775vYs4_ttlKDnHnyfh1Eo
+
+OpenWeatherMap.org
+9ca40e75e9f5ec1197766bf87c668827
