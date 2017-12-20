@@ -27,6 +27,7 @@ var weather;
 
 //API PARAMETERS
 //=====================================================
+
       
       
       var url_ss = "https://api.sunrise-sunset.org/json";
@@ -310,10 +311,12 @@ var weather;
       
 
           
+
 //initialize your Kartograph map 
 //var map = kartograph.map('#map')
 
 //var map = kartograph.map('#map', 600, 400);
+
   // hover effects on map
   $("#MO, #MS, #MT, #NC, #ND, #NE, #NH, #NJ, #NM, #NV, #NY, #OH, #OK, #OR, #PA, #RI, #SC, #SD, #TN, #TX, #UT, #VA, #VT, #WA, #WI, #WV, #WY, #AK, #HI, #AL, #AR, #AZ, #CA, #CO, #CT, #DE, #FL, #GA, #IA, #ID, #IL, #IN, #KS, #KY, #LA, #MA, #MD, #ME, #MI, #MN, #DC2").hover(function () {
      //stuff to do on mouse enter
@@ -333,10 +336,12 @@ var weather;
   }, 
   function () {
 
+
     //stuff to do on mouse leave
     var origCol ="#D3D3D3";
      $(this).attr("fill", origCol);
       var id = $(this).attr("");
+
   
   $("." + $(this).attr("id")).html("");
 
@@ -362,6 +367,7 @@ var weather;
       
      });  //close click function
           
+
 }); // close
 
 
