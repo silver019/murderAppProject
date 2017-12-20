@@ -373,7 +373,7 @@ var weather;
 
 
 $.ajax({
-      url: "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=9ca40e75e9f5ec1197766bf87c668827",
+      url: "https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=9ca40e75e9f5ec1197766bf87c668827",
       method: "GET"
     }).done(function(response) {
     console.log(response);
