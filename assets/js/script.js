@@ -354,7 +354,7 @@ var weather;
     // to generate state name on modal header
     state =$(this).attr("data-info");
     // variables to pull data from history.com
-    url_hist = "http://www.history.com/topics/us-states/";
+    url_hist = "https://www.history.com/topics/us-states/";
     // append to var state to add search parameter
     url_hist += state;
     console.log(url_hist);
@@ -373,7 +373,7 @@ var weather;
 
 
 $.ajax({
-      url: "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=9ca40e75e9f5ec1197766bf87c668827",
+      url: "https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=9ca40e75e9f5ec1197766bf87c668827",
       method: "GET"
     }).done(function(response) {
     console.log(response);
