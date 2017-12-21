@@ -8,17 +8,12 @@
     <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
     <!-- Css Stylesheet -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+     <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
      crossorigin="anonymous">
     </script>
     <!-- Moment.js -->
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <!-- Raphael.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
-    <!-- Kartograph.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/kartograph-js/0.8.7/kartograph.min.js"></script>
     <!-- Javascript -->
     <script src="assets/js/script.js" type="text/javascript"></script>
 </head>
@@ -57,7 +52,7 @@
               <div class="row">
                 <div class="col-md-3">
                  <form action="/action_page.php">
-
+		<div id="text"></div>
                   <label for="name">Name</label>
                   <input type="text" id="name" placeholder="Jane Smith">
 
@@ -67,14 +62,12 @@
                   <label for="message">Message</label>
                   <textarea id="subject" name="Message" style="height:200px"></textarea>
                 </form>
-                <form method="post" action="mailto:senshine.c@gmail.com">
-                 <input type="submit" value="Submit">
-                </form>
+                <button type="button" id="commentBtn" class="btn btn-primary">Submit</button>
                 </div>
               </div>
             </div>
             
             <div class="clearfix"></div>
-
+	<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 </body>
 </html>

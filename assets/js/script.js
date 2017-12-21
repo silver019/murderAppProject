@@ -1,30 +1,67 @@
 // A $( document ).ready() block.
 $( document ).ready(function() {
     console.log( "ready!" );
+ // Initialize Firebase
+//=================================================================
  
+   var config = {
+    apiKey: "AIzaSyAnlRupwOnVOdxvjDmhIc-6QpTw9Jf8kdg",
+    authDomain: "project1-1513260315505.firebaseapp.com",
+    databaseURL: "https://project1-1513260315505.firebaseio.com",
+    projectId: "project1-1513260315505",
+    storageBucket: "project1-1513260315505.appspot.com",
+    messagingSenderId: "339255777311"
+  };
+  firebase.initializeApp(config);
+
 //Variables for Site Scraping
+var database = firebase.database();
 var state = "";
 var stateDescription;
 var url_hist;
 var statehood;
 var capital;
-
-
 var population; 
-
-
 var size;
-
 var nickname;
-
-
 var motto;
 var start;
 var capstart;
 var images;
 var weather;
+var name;
+var email;
+var message;
 
+//create db parameters for firebase
+//=================================================================
 
+$( "#commentBtn" ).click(function() {
+ 
+
+	name = $("#name").val();
+	email = $("#email").val();
+	message = $("#subject").val();
+	console.log(name);
+	if(name === "" || email === ""){
+		$("#text").text("--Blank Fields--");
+		}
+		else{
+		database.ref('comments/').push({
+ 	 	   Name: name,
+		   Email: email,
+	 	  Subject: message,
+		
+	 	});
+		$("#text").text("");
+		 $("#name").val("");
+		 $("#email").val("");
+		 $("#subject").val("");
+	
+		}
+	
+ 	
+});
 //API PARAMETERS
 //=====================================================
 
@@ -258,6 +295,7 @@ var weather;
                    $('#myInput').focus()
     
                     });
+
             
                    
    
@@ -277,6 +315,7 @@ var weather;
       }).done(function(response) {
       console.log(response);
             
+
       });
 
 
@@ -354,7 +393,7 @@ var weather;
     // to generate state name on modal header
     state =$(this).attr("data-info");
     // variables to pull data from history.com
-    url_hist = "http://www.history.com/topics/us-states/";
+    url_hist = "https://www.history.com/topics/us-states/";
     // append to var state to add search parameter
     url_hist += state;
     console.log(url_hist);
@@ -373,7 +412,7 @@ var weather;
 
 
 $.ajax({
-      url: "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=9ca40e75e9f5ec1197766bf87c668827",
+      url: "https://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=9ca40e75e9f5ec1197766bf87c668827",
       method: "GET"
     }).done(function(response) {
     console.log(response);
