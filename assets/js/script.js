@@ -295,6 +295,7 @@ $( "#commentBtn" ).click(function() {
                    $('#myInput').focus()
     
                     });
+
             
                    
    
@@ -314,6 +315,7 @@ $( "#commentBtn" ).click(function() {
       }).done(function(response) {
       console.log(response);
             
+
       });
 
 
