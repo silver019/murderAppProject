@@ -1,6 +1,79 @@
+
+/body {
+  font-family: Helvetica,Tahoma;
+}
+
+/*
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+*/
+
+.aos-all {
+  width: 1000px;
+  max-width: 98%;
+  margin: 10vh auto 0 auto;
+}
+
+.aos-item {
+  display: inline-block;
+  float: left;
+  width: 33.3333%;
+  height: 300px;
+  padding: 20px;
+}
+
+.aos-item__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  float: left;
+  background: #1da4e2;
+  line-height: 260px;
+  text-align: center;
+  color: #fff;
+}
+
+/*on hover display info*/
+#us-map{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+path:hover, circle:hover {
+  stroke: #002868 !important;
+  stroke-width:2px;
+  stroke-linejoin: round;
+  fill: #002868 !important;
+  cursor: pointer;
+}
+#path67 {
+  fill: none !important;
+  stroke: #A9A9A9 !important;
+  cursor: default;
+}
+#info-box {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  background-color: #ffffff;
+  border: 2px solid #BF0A30;
+  border-radius: 5px;
+  padding: 5px;
+  font-family: arial;
+}
+
 .navbar-nav {
+  list-style-type: none;
   flex-direction:;
-  display: inline;
+  display: inline-flex;
 }
 
 #searchBar {
@@ -42,6 +115,11 @@ margin: 15px auto;
 
 box-shadow: 10px 10px 5px grey;
 
+}
+
+.our-images {
+  width: 128px;
+  height: 128px;
 }
 
 .blockquote{

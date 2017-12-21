@@ -1,58 +1,64 @@
-﻿	<!DOCTYPE html>
-	<html>
-	<head>
-    <title>US Tavel Map</title>
-    <!-- Bootstrap -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <!-- Normalize -->
-		<link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
-    <!-- Css Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <!-- Jquery -->
-		<script src="https://code.jquery.com/jquery-3.2.1.min.js"
- 		 integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
- 		 crossorigin="anonymous">
- 		</script>
-    <!-- Moment.js -->
- 		<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-    <!-- Raphael.js -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js"></script>
-    <!-- Kartograph.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/kartograph-js/0.8.7/kartograph.min.js"></script>
-    <!-- Javascript -->
- 		<script src="assets/js/script.js" type="text/javascript"></script>
 
-	</head>
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>ARCHIVISION</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- CUSTOM CSS STYLING -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+     crossorigin="anonymous">
+    </script>
+    <!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">    
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/script.js" type="text/javascript"></script>
+    <!-- AoS Library (for animations) -->
+    <link rel="stylesheet" href="assets/aos/dist/aos.css" />
+
+  </head>
   <body>
-	 
-    <!-- Nav Bar -->
-        <nav id="myNav" class="nav navbar-nav">
-          <div class="container-fluid flex-row-reverse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="index.html">Home</a></li>
-              <li><a class="nav-item" href="flights.html">Flights</a></li>
-              <li><a class="nav-item" href="about.html">About</a></li>
-              <li><a class="nav-item" href="contact.html">Contact Us</a></li>
-                <!-- Search Bar - need to make search bar functional or we need to remove it later-->
-                <form class="form-inline flex-last" id="searchBar">
-                	<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    					     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  				      </form>
-              <h1 id="myHeader">US Travel Map</h1>
-            </ul>
-       
-	<div class="container">
-		<div class="jumbotron">
-    		
-     		<h1>Template</h1>
-  		</div>
-  	
+   
+<!-- THIS IS THE START OF THE NAVBAR CONTAINER -->   
+ <div class="container">
+
+	<div class="row">
+		<div class="col-md-3"></div>
+        <div class="col-md-6">
+       <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  
+  <a class="navbar-brand" href="index.html">ARCHIVISION</a>
+  
+    
+      <a class="nav-item nav-link active" href="index.html">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="about.html">About</a>
+      <a class="nav-item nav-link" href="contact.html">Contact Us!</a>
+    
+  
+</nav>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
     <div class="row">
         <div class="col-md-12">
        
-        
+
+<!-- THIS IS THE START OF THE MAP CONTAINER -->
+  <div class="container">
+
+    
+    <div class="row">
+        <div class="col-md-12">
             
-        <!-- Modal. -->
+        <!-- Modal -->
         <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -87,9 +93,16 @@
 
           </div>
         </div>
+        <!--Animate on scroll begins here-->
+
+    <div id="transcroller-body" class="aos-all">
+      <div class="aos-item" data-aos="flip-right" data-aos-anchor-placement="top-center" data-aos-duration="1000">
+          <div id="map">
+
+            <div id="info-box"></div>
 
          <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="959" height="593">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="593">
 <title>Blank US states map</title>
 <g id="outlines">
 
@@ -151,6 +164,8 @@
   <path id="WI" data-toggle="modal" data-target="#myModal" data-info="wisconsin" fill="#D3D3D3" d="M541.4,109.9 l2.9,0.5 2.9,-0.6 7.4,-3.2 2.9,-1.9 2.1,-0.8 1.9,1.5 -1.1,1.1 -1.9,3.1 -0.6,1.9 1,0.6 1.8,-1 1.1,-0.2 2.7,0.8 0.6,1.1 1.1,0.2 0.6,-1.1 4,5.3 8.2,1.2 8.2,2.2 2.6,1.1 12.3,2.6 1.6,2.3 3.6,1.2 1.7,10.2 1.6,1.4 1.5,0.9 -1.1,2.3 -1.8,1.6 -2.1,4.7 -1.3,2.4 0.2,1.8 1.5,0.3 1.1,-1.9 1.5,-0.8 0.8,-2.3 1.9,-1.8 2.7,-4 4.2,-6.3 0.8,-0.5 0.3,1 -0.2,2.3 -2.9,6.8 -2.7,5.7 -0.5,3.2 -0.6,2.6 0.8,1.3 -0.2,2.7 -1.9,2.4 -0.5,1.8 0.6,3.6 0.6,3.4 -1.5,2.6 -0.8,2.9 -1,3.1 1.1,2.4 0.6,6.1 1.6,4.5 -0.2,3 -15.9,1.8 -17.5,1 h-12.7 l-0.7,-1.5 -2.9,-0.4 -2.6,-1.3 -2.3,-3.7 -0.3,-3.6 2,-2.9 -0.5,-1.4 -2.1,-2.2 -0.8,-3.3 -0.6,-6.8 -2.1,-2.5 -7,-4.5 -3.8,-5.4 -3.4,-1 -2.2,-2.8 h-3.2 l-2.9,-3.3 -0.5,-6.5 0.1,-3.8 1.5,-3.1 -0.8,-3.2 -2.5,-2.8 1.8,-5.4 5.2,-3.8 1.6,-1.9 -0.2,-8.1 0.2,-2.8 2.4,-2.8z"/>
   <path id="WV" data-toggle="modal" data-target="#myModal" data-info="west-virginia" fill="#D3D3D3" d="M758.9,254.3 l5.8,-6 2.6,-0.8 1.6,-1.5 1.5,-2.2 1.1,0.3 3.1,-0.2 4.6,-3.6 1.5,-0.5 1.3,1 2.6,1.2 3,3 -0.4,4.3 -5.4,-2.6 -4.8,-1.8 -0.1,5.9 -2.6,5.7 -2.9,2.4 -0.8,2.3 -3,0.5 -1.7,8.1 -2.8,0.2 -1.1,-1 -1.2,-2 -2.2,0.5 -0.5,5.1 -1.8,5.1 -5,11 0.9,1.4 -0.1,2 -2.2,2.5 -1.6,-0.4 -3.1,2.3 -2.8,-0.8 -1.8,4.9 -3.8,1 -2.5,-1.3 -2.5,1.9 -2.3,0.7 -3.2,-0.8 -3.8,-4.5 -3.5,-2.2 -2.5,-2.5 -2.9,-3.7 -0.5,-2.3 -2.8,-1.7 -0.6,-1.3 -0.2,-5.6 0.3,0.1 2.4,-0.2 1.8,-1 v-2.2 l1.7,-1.5 0.1,-5.2 0.9,-3.6 1.1,-0.7 0.4,0.3 1,1.1 1.7,0.5 1.1,-1.3 -1,-3.1 v-1.6 l3.1,-4.6 1.2,-1.3 2,0.5 2.6,-1.8 3.1,-3.4 2.4,-4.1 0.2,-5.6 0.5,-4.8 v-4.9 l-1.1,-3 0.9,-1.3 0.8,-0.7 4.3,19.3 4.3,-0.8 11.2,-1.3z"/>
   <path id="WY" data-toggle="modal" data-target="#myModal" data-info="wyoming" fill="#D3D3D3" d="M353,161.9 l-1.5,25.4 -4.4,44 -2.7,-0.3 -83.3,-9.1 -27.9,-3 2,-12 6.9,-41 3.8,-24.2 1.3,-11.2 48.2,7 59.1,6.5z"/>
+
+
   <g id="DC">
     <path id="DC1" data-toggle="modal" data-target="#myModal" data-info="washington-dc" fill="#D3D3D3" d="M801.8,253.8 l-1.1-1.6 -1-0.8 1.1-1.6 2.2,1.5z"/>
     <circle id="DC2" data-toggle="modal" data-target="#myModal" data-info="washington-dc" fill="#D3D3D3" stroke="#FFFFFF" stroke-width="1.5" cx="801.3" cy="251.8" r="5" opacity="1"/> <!-- Set opacity to "0" to hide DC circle -->
@@ -161,12 +176,22 @@
 
 
 
+
         </div>
     </div>
-    	</div>
-		<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+      </div>
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-	</body>
-	</html>
+        <!--animate on scroll ends here-->
+
+    <script src="assets/aos/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        easing: 'ease-in-out-sine'
+      });
+    </script>
+  <script src="assets/js/script.js"></script>
+  </body>
+  </html>
